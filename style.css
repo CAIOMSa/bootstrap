@@ -1,0 +1,38 @@
+
+body{
+    background-image: linear-gradient(to right,rgb(36, 36, 36), rgb(27, 0, 77));
+    color: white;
+}
+.container{
+    background-color: rgba(27, 27, 27, 0.342);
+    margin-top: 40px;
+    box-shadow: 0 0 10px #2521f3,0 0 20px #2521f3,0 0 30px #2521f3,0 0 50px #2521f3;
+    padding: 40px 40px;
+    border: 1px solid rgba(255, 225, 255, 0.2);
+    border-radius: 20px;
+}
+.form-control{
+    background-color:rgba(255, 225, 255, 0.2);
+    border: #2521f3;
+    color: white;
+}
+.input-group-addon{
+    background-color:#2521f3;
+    color: white;
+    border: #2521f3;
+}
+.btn{
+    background-color:#2521f3;
+    color: white;
+    border: #2521f3;
+}
+.btn:hover{
+    background-color:#2521f3;
+    color: white;
+    border: #2521f3;
+}
+.bnt:visited{
+    background-color:#2521f3;
+    color: white;
+    border: #2521f3;
+}

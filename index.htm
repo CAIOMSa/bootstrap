@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="bootstrap3/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Formulario</title>
+</head>
+<body>
+    <section class="container">
+
+        <h1>Cadastro</h1>
+        <div class="input-group">
+        <div class="input-group-addon" id="nomerequerido">requirido</div>
+        <input type="text" class="form-control" placeholder="nome" id="usuarionome" >
+        </div>
+        <br>
+        <div class="input-group">
+        <div class="input-group-addon" id="celularrequerido">requirido</div>
+        <input type="text"  class="form-control" placeholder="celular ex:+55 11 12345-6789" id="usuariotelefone">
+        </div>
+        <br>
+        <div class="input-group">
+        <div class="input-group-addon" id="enderecoRequerido">requirido</div>
+        <input type="text"  class="form-control" placeholder="endereço" id="usuarioendereco">
+        </div>
+        <br>
+        <input type="button" class="btn btn-primary"  value="validar" id="confirmar">
+        <br>
+        <h2 id="alerta"></h2>
+    </section>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">var campoNome = $("#usuarionome");
+    var campoTelefone = $("#usuariotelefone");
+    var campoEndereco = $("#usuarioendereco");
+    var campoConfirmar = $("#confirmar");
+    var conclusao = $("#alerta");
+    const nomeRequerido = $("#nomerequerido");
+    const celularRequerido = $("#celularrequerido");
+    const enderecoRequerido = $("#enderecoRequerido")
+    var nomeValido = false;
+    var telefoneValido = false;
+    var enderecoValido = false;
+    var regexNome = /^[a-zA-Z ]+$/;
+    var regexTelefone = /^[+]{0,1}[0-9]{2}[ \s\.\-]{0,1}[0-9]{2}[ \s\.\-]{0,1}[0-9]{5}[ \s\.\-]{0,1}[0-9]{4}$/;
+    campoNome.on("input",function(){
+        var txtNome  = $("#usuarionome").val();
+        var textonomerequerido;
+        nomeValido = regexNome.test(txtNome);
+        if(nomeValido){
+            nomeRequerido.text("Valido");
+        }else{
+            nomeRequerido.text("invalido");
+        }
+
+    
+    });
+    campoTelefone.on("input",function(){
+        var txtTelefone = $("#usuariotelefone").val();
+        telefoneValido = regexTelefone.test(txtTelefone);
+        if(telefoneValido){
+            celularRequerido.text("Valido");
+        }else{
+            celularRequerido.text("invalido");
+        }
+    
+    });
+    campoEndereco.on("input",function(){
+        var txtEndereco = $("#usuarioendereco").val();
+        enderecoValido = (txtEndereco != null)||(txtEndereco != "");
+        if(enderecoValido){
+            enderecoRequerido.text("Valido");
+        }else{
+            enderecoRequerido.text("invalido");
+        }
+    });
+    campoConfirmar.on("click",function(){
+        if((enderecoValido) && (telefoneValido) && (nomeValido)){
+            conclusao.text("o cadastro foi preenchido corretamente");
+        }else{
+            conclusao.text("o cadastro foi preenchido incorretamente");
+        }
+    });</script>
+</html>
